@@ -1,0 +1,122 @@
+﻿@model TMS.Dtos.UserDto
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@{
+    var cmpName = Configuration.GetSection("CompanyName").Value;
+}
+<aside class="main-sidebar elevation-4 sidebar-dark-purple">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link bg-purple">
+        <img src="~/lib/theme/dist/img/logo.png" alt="@cmpName" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">@cmpName</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="~/lib/theme/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info text-white">
+                <a href="#" class="d-block text-white">@Model.FirstName @Model.LastName</a>
+            </div>
+        </div>
+        <nav class="mt-2 nav-flat">
+            <ul id="menuItemsParent" class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link" id="menuItemDashboard">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                @if (Model.Role.ToLower() == "admin")
+                {
+                    <li class="nav-item">
+                        <a asp-controller="Staff" asp-action="Index" class="nav-link" id="menuItemStaff">
+                            <i class="nav-icon fas fa-user-tie"></i>
+                            <p>Staff</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Customer" asp-action="Index" class="nav-link" id="menuItemCustomer">
+                            <i class="nav-icon fa-solid fa-users-line"></i>
+                            <p>
+                                Customers
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Orders" asp-action="Index" class="nav-link" id="menuItemOrders">
+                            <i class="nav-icon fa-solid fa-cart-plus"></i>
+                            <p>
+                                Orders
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="Invoices" asp-controller="Orders" class="nav-link" id="menuItemInvoices">
+                            <i class="nav-icon fa-solid fa-receipt"></i>
+                            <p>
+                                Invoices
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="BalanceSheet" asp-controller="Orders" class="nav-link" id="menuItemBalanceSheet">
+                            <i class="nav-icon fa-solid fa-file-contract"></i>
+                            <p>
+                                Balance Sheet
+                            </p>
+                        </a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a asp-action="Profile" asp-controller="Profile" class="nav-link" id="menuItemProfile">
+                        <i class="nav-icon fa-solid fa-user"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="Password" asp-controller="Profile" class="nav-link" id="menuItemPassword">
+                        <i class="nav-icon fa-solid fa-user-secret"></i>
+                        <p>
+                            Change Password
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</aside>
+
+
+<script>
+    $(document).ready(function () {
+        $('#menuItemsParent').find('li a.active').removeClass('active');
+        var path = window.location.pathname.toLocaleLowerCase();
+        if (path.includes("/staff")) {
+            $('#menuItemStaff').addClass('active');
+        } else if (path.includes("/customer")) {
+            $('#menuItemCustomer').addClass('active');
+        } else if (path.includes("/orders/invoices")) {
+            $('#menuItemInvoices').addClass('active');
+        } else if (path.includes("/orders/balancesheet")) {
+            $('#menuItemBalanceSheet').addClass('active');
+        } else if (path.includes("/orders")) {
+            $('#menuItemOrders').addClass('active');
+        } else if (path.includes("/profile/profile")) {
+            $('#menuItemProfile').addClass('active');
+        } else if (path.includes("/profile/password")) {
+            $('#menuItemPassword').addClass('active');
+        } else {
+            $('#menuItemDashboard').addClass('active');
+        }
+
+    })
+</script>
+

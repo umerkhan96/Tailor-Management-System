@@ -1,0 +1,121 @@
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@{
+    var cmpName = Configuration.GetSection("CompanyName").Value;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@cmpName</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/regular.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/theme/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="~/lib/theme/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/lib/theme/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/lib/theme/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TMS.styles.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="~/lib/theme/dist/img/logo.png" />
+
+
+    <script src="~/lib/theme/plugins/jquery/jquery.min.js"></script>
+    <script src="~/lib/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="~/lib/theme/dist/js/adminlte.js"></script>
+    <script src="~/lib/theme/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="~/lib/theme/plugins/raphael/raphael.min.js"></script>
+    <script src="~/lib/theme/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="~/lib/theme/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <script src="~/lib/theme/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/lib/theme/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/theme/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/theme/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm accent-navy">
+    <div class="wrapper">
+
+        <nav class="main-header navbar navbar-expand  bg-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-purple"></i></a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#" title="Profile">
+                        <i class="fas fa-user-circle text-purple" style="font-size: 30px;"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="/Profile/Profile" class="dropdown-item"><i class="nav-icon fa-solid fa-id-badge"></i> My Profile</a>
+                        <a href="/Profile/Password" class="dropdown-item"><i class="nav-icon fa-solid fa-user-secret"></i> Change Password</a>
+                        <a href="/Account/Logout" class="dropdown-item"><i class="nav-icon fa-solid fa-right-from-bracket"></i> Sign Out</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Sidebar Container -->
+        @(await Component.InvokeAsync("Navigation"))
+
+        @RenderBody()
+
+
+        <div class="modal fade" id="modal-sm">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-df">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-lg">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-xl">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="main-footer">
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#">TMS</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0.0
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

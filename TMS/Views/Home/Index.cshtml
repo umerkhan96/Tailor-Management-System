@@ -1,0 +1,262 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="~/lib/theme/plugins/fullcalendar/main.css">
+<script src="~/lib/theme/plugins/moment/moment.min.js"></script>
+<script src="~/lib/theme/plugins/fullcalendar/main.js"></script>
+<style>
+    #calendar {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-users-rectangle"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Customers</span>
+                            <span class="info-box-number" id="txtCustomerCount">
+                                <i class="fa fa-spinner fa-spin text-info"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Orders</span>
+                            <span class="info-box-number" id="txtOrdersCount">
+                                <i class="fa fa-spinner fa-spin text-danger"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix hidden-md-up"></div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-cart-plus"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Today Taken Orders</span>
+                            <span class="info-box-number" id="txtTakenOrdersCount">
+                                <i class="fa fa-spinner fa-spin text-success"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-purple elevation-1"><i class="fa-solid fa-cart-arrow-down"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Today Return Orders</span>
+                            <span class="info-box-number" id="txtReturnOrdersCount">
+                                <i class="fa fa-spinner fa-spin text-purple"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card card-primary">
+                        <div class="card-body">
+                            <div id="calendar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="text-purple">Quick Links</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="products-list product-list-in-card pl-2 pr-2">
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class=" fas fa-user-tie text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="index" asp-controller="Staff" class="product-title">
+                                            Staff
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class=" fa-solid fa-users-line text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="index" asp-controller="Customer" class="product-title">
+                                            Customers
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class="fa-solid fa-cart-plus text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="index" asp-controller="Orders" class="product-title">
+                                            Orders
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class=" fa-solid fa-receipt text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="Invoices" asp-controller="Orders" class="product-title">
+                                            Invoices
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class=" fa-solid fa-file-contract text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="BalanceSheet" asp-controller="Orders" class="product-title">
+                                            Balance Sheet
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class=" fa-solid fa-user text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="Profile" asp-controller="Profile" class="product-title">
+                                            Profile
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class="fa-solid fa-user-secret text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="Password" asp-controller="Profile" class="product-title">
+                                            Change Password
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <i class="fa-solid fa-right-from-bracket text-purple" style="font-size: x-large;"></i>
+                                    </div>
+                                    <div class="product-info">
+                                        <a asp-action="Logout" asp-controller="Account" class="product-title">
+                                            Sign Out
+                                        </a>
+                                    </div>
+                                </li>
+                           
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        getCustomerCount();
+        getOrdersCount();
+        getTakenOrdersCount();
+        getReturnOrdersCount();
+        getCalanderData();
+    })
+
+    function getCustomerCount() {
+        $.get('/home/GetCustomerCount', function (data) {
+            $('#txtCustomerCount').html(data);
+        })
+    }
+    function getOrdersCount() {
+        $.get('/home/GetTotalOrdersCount', function (data) {
+            $('#txtOrdersCount').html(data);
+        })
+    }
+    function getTakenOrdersCount() {
+        $.get('/home/GetTodayTakenOrdersCount', function (data) {
+            $('#txtTakenOrdersCount').html(data);
+        })
+    }
+    function getReturnOrdersCount() {
+        $.get('/home/GetTodayReturnOrdersCount', function (data) {
+            $('#txtReturnOrdersCount').html(data);
+        })
+    }
+
+    function getCalanderData() {
+
+        $.get('/home/GetCalanderOrders', function (data) {
+
+            var calendarEl = document.getElementById('calendar');
+            var Calendar = FullCalendar.Calendar;
+            var items = [];
+            data.forEach(function (e, i) {
+                var date = new Date(e.returnDate)
+                var today = new Date();
+                var d = date.getDate(),
+                    m = date.getMonth(),
+                    y = date.getFullYear(),
+                    dt = today.getDate();
+                var color = "purple";
+                if (d <= dt) {
+                    color = e.isCollected ? "green" : "red";
+                }
+                items.push({
+                    title: 'Order #' + e.id,
+                    start: new Date(y, m, d),
+                    backgroundColor: color,
+                    borderColor: color,
+                    url: '/Orders/GetInvoice?ID=' + e.id,
+                    allDay: true
+                })
+            })
+            var calendar = new Calendar(calendarEl, {
+                headerToolbar: {
+                    left: '',
+                    center: 'title',
+                    right: ''
+                },
+                themeSystem: 'bootstrap',
+                events: items,
+            });
+
+            calendar.render();
+        })
+    }
+</script>

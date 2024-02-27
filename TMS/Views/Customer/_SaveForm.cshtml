@@ -1,0 +1,42 @@
+﻿@model TMS.Dtos.CustomerDto
+@inject Microsoft.Extensions.Configuration.IConfiguration configuration
+
+<form id="form-save-customer">
+    <input type="hidden" asp-for="Id" />
+    <div class="modal-header">
+        <h4 class="modal-title">Save Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label>First Name <span class="req-star">*</span></label>
+                <input type="text" asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Last Name <span class="req-star">*</span></label>
+                <input type="text" asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Mobile number <span class="req-star">*</span></label>
+                <input type="text" asp-for="MobileNumber" class="form-control" />
+                <span asp-validation-for="MobileNumber"></span>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Address</label>
+                <textarea type="text" asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address"></span>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="CustomerManager.SaveCustomer()">Save changes</button>
+    </div>
+</form>
+<partial name="_ValidationScriptsPartial" />

@@ -1,0 +1,160 @@
+﻿@model TMS.Dtos.OrdersDto
+@{
+    Layout = null;
+}
+<div class="modal-header">
+    <h4 class="modal-title">Order Details</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" id="prnDiv">
+    <div class="row">
+        <div class="col-md-2">
+            <label>Order ID: </label>
+            #@Model.Id
+        </div>
+        <div class="col-md-3">
+            <label>Customer Name: </label>
+            @Model.CustomerName
+        </div>
+        <div class="col-md-3">
+            <label>Order Date: </label>
+            @Model.OrderDate.ToString("dd MMM, yyyy")
+        </div>
+        <div class="col-md-3">
+            <label>Return Date: </label>
+            @Model.ReturnDate.ToString("dd MMM, yyyy")
+        </div>
+        <div class="col-md-1">
+            <label>Qty: </label>
+            @Model.OrderItem.Qty
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-12 p-2">
+            <table class="table table-bordered table-sm text-right">
+                <tr>
+                    <td colspan="4" rowspan="10" class="w-50">
+
+                        <div class="form-group col-md-12">
+                            <label class="text-right col-12">تفصیل:</label>
+                            @Model.OrderItem.Description
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="text-right col-12"> :دیگر تفصیلات </label>
+                            <div class="col-12" style="min-height: 200px;padding:5px;border-radius: 5px;word-wrap: break-word;max-width: 450px; float:right;">@Model.OrderItem.OtherDetails</div>
+                        </div>
+                    </td>
+                    <td>
+                        @Model.OrderItem.ShirtLengthSize
+                    </td>
+                    <td>لمبائی قمیض</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.ArmSize
+                    </td>
+                    <td>بازو</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.TeraSize
+                    </td>
+                    <td>تیرا</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.NeckSize
+                    </td>
+                    <td>گلا</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.ChestSize
+                    </td>
+                    <td>چھاتی</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.QamarSize
+                    </td>
+                    <td>کمر</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.HipsSize
+                    </td>
+                    <td>گھیرہ</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.PentLengthSize
+                    </td>
+                    <td>شلوار لمبائی</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.FeetSize
+                    </td>
+                    <td>پائنچہ</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.PentSize
+                    </td>
+                    <td>شلوار گھیرہ</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.Shirt
+                    </td>
+                    <td>شرٹ</td>
+                    <td>
+                        @Model.OrderItem.Kurta
+                    </td>
+                    <td>کرتا</td>
+                    <td>
+                        @Model.OrderItem.ShalwarPocket
+                    </td>
+                    <td>شلوار پاکٹ</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.Patti
+                    </td>
+                    <td>پٹی چوڑائی</td>
+                    <td>
+                        @Model.OrderItem.Cuff
+                    </td>
+                    <td>کف چوڑائی</td>
+                    <td>
+                        @Model.OrderItem.ColorNock
+                    </td>
+                    <td>کالر نوک</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.OrderItem.SidePocket
+                    </td>
+                    <td>سائیڈ پاکٹ</td>
+                    <td>
+                        @Model.OrderItem.FrontPocket
+                    </td>
+                    <td>سامنے پاکٹ</td>
+                    <td>
+                        @Model.OrderItem.ColorBan
+                    </td>
+                    <td>کالر بین</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" onclick="OrdersManager.PrintMeasurements('@Model.Id')">Print</button>
+</div>
+

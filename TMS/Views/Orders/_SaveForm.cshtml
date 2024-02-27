@@ -1,0 +1,272 @@
+﻿@model TMS.Dtos.OrdersDto
+@inject Microsoft.Extensions.Configuration.IConfiguration configuration
+@{
+    bool isDisabled = Model.Id > 0;
+}
+
+<link rel="stylesheet" href="~/lib/theme/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="~/lib/theme/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<div class="content-wrapper">
+    <input type="hidden" id="optFromCustomer" value="true" />
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Orders</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Orders</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <form id="form-save-order">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="card-header">
+                        <h4 class="modal-title">Take Order</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 row">
+                                <div class="form-group col-md-9">
+                                    <label>Customer<span class="req-star">*</span></label>
+                                    <select class="form-control select2" asp-for="CustomerId" disabled="@isDisabled">
+                                        <option value="">Select Customer</option>
+                                        @if (Model.Customers != null)
+                                        {
+                                            foreach (var x in Model.Customers)
+                                            {
+                                                <option value="@x.Id">@x.FirstName @x.LastName (@x.Id)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="CustomerId"></span>
+                                </div>
+                                <div class="col-md-3 p-0">
+                                    <label>&nbsp;</label>
+                                    <br />
+                                    <button class="btn btn-primary w-100" type="button" onclick="CustomerManager.LoadSaveForm(0)" disabled="@isDisabled"><i class="fa fa-plus-circle"></i> Add</button>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Order Date</label>
+                                <input type="date" asp-for="OrderDate" class="form-control" value="@(isDisabled?Model.OrderDate.ToString("yyyy-MM-dd"):DateTime.Now.ToString("yyyy-MM-dd"))" min="@(isDisabled?Model.OrderDate.ToString("yyyy-MM-dd"):DateTime.Now.ToString("yyyy-MM-dd"))" />
+                                <span asp-validation-for="OrderDate"></span>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Return Date</label>
+                                <input type="date" asp-for="ReturnDate" class="form-control" value="@(isDisabled ?Model.ReturnDate.ToString("yyyy-MM-dd"):DateTime.Now.ToString("yyyy-MM-dd") )" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                <span asp-validation-for="ReturnDate"></span>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Total Amount</label>
+                                <input type="number" asp-for="TotalAmount" class="form-control" min="0" step="0.01" />
+                                <span asp-validation-for="TotalAmount"></span>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Paid Amount</label>
+                                <input type="number" asp-for="PaidAmount" class="form-control" min="0" step="0.01" />
+                                <span asp-validation-for="PaidAmount"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label>Tailor(درزی) <span class="req-star">*</span></label>
+                                <select class="form-control select2" asp-for="OrderItem.TailorId">
+                                    <option value="">Select Tailor</option>
+                                    @if (Model.Tailors != null)
+                                    {
+                                        foreach (var x in Model.Tailors)
+                                        {
+                                            <option value="@x.Id">@x.FirstName @x.LastName (@x.Id)</option>
+                                        }
+                                    }
+                                </select>
+                                <span asp-validation-for="OrderItem.TailorId"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Cutter(کپڑا کاٹنے والا) <span class="req-star">*</span></label>
+                                <select class="form-control select2" asp-for="OrderItem.CutterId">
+                                    <option value="">Select Cutter</option>
+                                    @if (Model.Tailors != null)
+                                    {
+                                        foreach (var x in Model.Cutters)
+                                        {
+                                            <option value="@x.Id">@x.FirstName @x.LastName (@x.Id)</option>
+                                        }
+                                    }
+                                </select>
+                                <span asp-validation-for="OrderItem.CutterId"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Quantity<span class="req-star">*</span></label>
+                                <input type="number" class="form-control" asp-for="OrderItem.Qty" />
+                                <span asp-validation-for="OrderItem.Qty"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="justify-content:center">
+                            <div class="card col-9 p-2">
+                                <table class="table table-bordered table-sm text-right">
+                                    <tr>
+                                        <td colspan="4" rowspan="10">
+                                            <div class="form-group col-md-12">
+                                                <label class="text-right col-12"> دیگر تفصیلات </label>
+                                                <textarea class="form-control" asp-for="OrderItem.OtherDetails" rows="15"></textarea>
+                                                <span asp-validation-for="OrderItem.OtherDetails"></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.ShirtLengthSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.ShirtLengthSize"></span>
+                                        </td>
+                                        <td>لمبائی قمیض</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.ArmSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.ArmSize"></span>
+                                        </td>
+                                        <td>بازو</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.TeraSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.TeraSize"></span>
+                                        </td>
+                                        <td>تیرا</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.NeckSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.NeckSize"></span>
+                                        </td>
+                                        <td>گلا</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.ChestSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.ChestSize"></span>
+                                        </td>
+                                        <td>چھاتی</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.QamarSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.QamarSize"></span>
+                                        </td>
+                                        <td>کمر</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.HipsSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.HipsSize"></span>
+                                        </td>
+                                        <td>گھیرہ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.PentLengthSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.PentLengthSize"></span>
+                                        </td>
+                                        <td>شلوار لمبائی</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.FeetSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.FeetSize"></span>
+                                        </td>
+                                        <td>پائنچہ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="number" class="form-control" asp-for="OrderItem.PentSize" min="0" max="100" step="0.01" />
+                                            <span asp-validation-for="OrderItem.PentSize"></span>
+                                        </td>
+                                        <td>شلوار گھیرہ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.FrontPocket" />
+                                            <span asp-validation-for="OrderItem.FrontPocket"></span>
+                                        </td>
+                                        <td>سامنے پاکٹ</td>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.ColorBan" />
+                                            <span asp-validation-for="OrderItem.ColorBan"></span>
+                                        </td>
+                                        <td>کالر/بین</td>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.ColorNock" />
+                                            <span asp-validation-for="OrderItem.ColorNock"></span>
+                                        </td>
+                                        <td>دامن</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.SidePocket" />
+                                            <span asp-validation-for="OrderItem.SidePocket"></span>
+                                        </td>
+                                        <td>سائیڈ پاکٹ</td>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.Patti" />
+                                            <span asp-validation-for="OrderItem.Patti"></span>
+                                        </td>
+                                        <td>پائنچہ ڈیزائن</td>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.Shirt" />
+                                            <span asp-validation-for="OrderItem.Shirt"></span>
+                                        </td>
+                                        <td>شرٹ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.ShalwarPocket" />
+                                            <span asp-validation-for="OrderItem.ShalwarPocket"></span>
+                                        </td>
+                                        <td>شلوار پاکٹ</td>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.Cuff" />
+                                            <span asp-validation-for="OrderItem.Cuff"></span>
+                                        </td>
+                                        <td>کف </td>
+                                        <td>
+                                            <input type="text" class="form-control" asp-for="OrderItem.Kurta" />
+                                            <span asp-validation-for="OrderItem.Kurta"></span>
+                                        </td>
+                                        <td>کرتا</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer text-right">
+                        <button type="button" class="btn btn-primary" onclick="OrdersManager.SaveOrders()">Save changes</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</div>
+<partial name="_ValidationScriptsPartial" />
+<script src="~/js/customer-manager.js" asp-append-version="true"></script>
+<script src="~/js/order-manager.js" asp-append-version="true"></script>
+<script src="~/lib/theme/plugins/select2/js/select2.full.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2({
+            theme: 'bootstrap4'
+        });
+    })
+</script>
