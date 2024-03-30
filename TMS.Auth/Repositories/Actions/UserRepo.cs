@@ -125,8 +125,8 @@ namespace TMS.Auth.Repositories.Actions
         {
             List<UserDto> data = new List<UserDto>();
             int total = 0;
-            int Index = PageSize * PageNumber;
-            //List<ApplicationUser> users = new List<ApplicationUser>();
+            int Index = PageNumber;
+           
             if (string.IsNullOrEmpty(Role))
             {
 
@@ -136,14 +136,10 @@ namespace TMS.Auth.Repositories.Actions
                 var tailorUsers = await _signinManager.UserManager.GetUsersInRoleAsync(trol);
                 var cutterUsers = await _signinManager.UserManager.GetUsersInRoleAsync(crol);
                 var otherUsers = await _signinManager.UserManager.GetUsersInRoleAsync(orol);
-                //users.AddRange(tailorUsers);
-                //users.AddRange(cutterUsers);
-                //users.AddRange(otherUsers);
-
+           
                 tailorUsers.ToList().ForEach(x =>
                 {
                     var us = MapUser(x);
-                    us.Index = ++Index;
                     us.Role = trol;
                     data.Add(us);
                 });
@@ -151,7 +147,6 @@ namespace TMS.Auth.Repositories.Actions
                 cutterUsers.ToList().ForEach(x =>
                 {
                     var us = MapUser(x);
-                    us.Index = ++Index;
                     us.Role = crol;
                     data.Add(us);
                 });
@@ -159,7 +154,6 @@ namespace TMS.Auth.Repositories.Actions
                 otherUsers.ToList().ForEach(x =>
                 {
                     var us = MapUser(x);
-                    us.Index = ++Index;
                     us.Role = orol;
                     data.Add(us);
                 });
@@ -170,11 +164,9 @@ namespace TMS.Auth.Repositories.Actions
                 rsers.ToList().ForEach(x =>
                 {
                     var us = MapUser(x);
-                    us.Index = ++Index;
                     us.Role = Role;
                     data.Add(us);
                 });
-                //users.AddRange(rsers);
             }
 
             if (Status.HasValue)
@@ -208,8 +200,11 @@ namespace TMS.Auth.Repositories.Actions
                     break;
             }
 
-            data = data.Skip(PageSize * PageNumber).Take(PageSize).ToList();
-
+            data = data.Skip(PageNumber).Take(PageSize).ToList();
+            foreach (var item in data)
+            {
+                item.Index = ++Index;
+            }
             return (total, data);
         }
 

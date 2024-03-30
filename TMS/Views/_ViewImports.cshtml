@@ -1,3 +1,7 @@
-﻿@using TMS
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Localization
+@using TMS
 @using TMS.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer

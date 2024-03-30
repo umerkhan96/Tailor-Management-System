@@ -42,9 +42,9 @@ namespace TMS.Controllers
             return Json(new
             {
                 draw,
-                recordsTotal = res.Total,
-                recordsFiltered = res.Data.Count,
-                data = res.Data
+                recordsTotal = res.Data.Count,
+                recordsFiltered = res.Total,
+                data = res.Data,
             });
         }
 

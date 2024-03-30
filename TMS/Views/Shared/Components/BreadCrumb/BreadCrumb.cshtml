@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+    var isRtl = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+    var txtHeader = isRtl ? "text-right" : "text-left";
+    var txtBreadCrumb = isRtl ? "float-sm-left" : "float-sm-right";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6 @txtHeader">
+                <h1>@ViewBag.Title</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb @txtBreadCrumb">
+                    <li class="breadcrumb-item"><a href="#">@ViewBag.From</a></li>
+                    <li class="">/</li>
+                    <li class="breadcrumb-item active"><a href="#">@ViewBag.To</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Culture";
+    var returnUrl = ViewBag.returnUrl;
+    bool isRtl = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft;
+    var floatBtn = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "float-left" : "float-right";
+    var textalign = isRtl ? "text-right" : "text-left";
+}
+
+<div class="content-wrapper">
+    @(await Component.InvokeAsync("BreadCrumb", new { Title = localizer["Language"], From = localizer["Home"], To = localizer["Language"] }))
+
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="card-header @textalign">
+                            <h3 class="card-title col-12">@localizer["Change_Language"]</h3>
+                        </div>
+
+                        <form id="form-profile">
+                            <div class="card-body row">
+                                <div class="form-group col-6">
+                                    <label class="col-12 @textalign">@localizer["Select_Language"]</label>
+                                    <select name="culture" id="ddlCulture" class="form-control">
+                                        <option value="en" selected="@(CultureInfo.CurrentCulture.Name == "en")">@localizer["English"]</option>
+                                        <option value="ur" selected="@(CultureInfo.CurrentCulture.Name == "ur")">@localizer["Urdu"]</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-outline-primary mt-4 @floatBtn" onclick="updateLanguage()">@localizer["Change_Language"]</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    function updateLanguage() {
+        if (true) {
+            var cltur = $('#ddlCulture').val();
+            $.ajax({
+                url: '/Profile/SetCulture',
+                type: 'post',
+                data: { culture: cltur },
+                success: function (data) {
+                    window.location.reload();
+                },
+                error: function () {
+                    showMessage('Oops!', '@localizer["please_try_again"]', 'error');
+                }
+            })
+        }
+    }
+
+</script>

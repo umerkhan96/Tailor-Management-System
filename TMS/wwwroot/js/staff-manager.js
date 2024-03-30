@@ -11,7 +11,7 @@
                     "data": function (d) {
                         d.role = $('#roleFilter').val();
                         d.status = $('#statusFilter').val();
-                    }
+                    },
                 },
                 "columns": [
                     { "data": "index", "name": "index", "autoWidth": true },

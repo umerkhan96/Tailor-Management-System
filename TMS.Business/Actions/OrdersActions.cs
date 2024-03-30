@@ -152,9 +152,9 @@ namespace TMS.Business.Actions
                     || x.Customer.LastName.ToLower().Contains(searchTitle));
             }
 
-            int index = PageSize * PageIndex;
-            data = data.Skip(index).Take(PageSize);
             int total = await data.CountAsync();
+            int index = PageIndex;
+            data = data.Skip(index).Take(PageSize);
             var model = await data.AsNoTracking().Select(x => new OrdersDto()
             {
                 Id = x.Id,

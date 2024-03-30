@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DocumentFormat.OpenXml.InkML;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Localization;
 using TMS.Auth.Services.Interfaces;
 using TMS.Dtos;
 
@@ -11,6 +15,24 @@ namespace TMS.Controllers
         public ProfileController(IUserService userService)
         {
             _userService = userService;
+        }
+
+        public IActionResult Culture()
+        {
+            ViewBag.returnUrl = string.IsNullOrEmpty(HttpContext.Request.Path)
+                ? "~/"
+                : $"~{HttpContext.Request.Path.Value}{HttpContext.Request.QueryString}";
+            return View();
+        }
+
+        [HttpPost]
+        public void SetCulture(string culture)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddDays(30) }
+            );
         }
 
         public async Task<IActionResult> Profile()

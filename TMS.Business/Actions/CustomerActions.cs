@@ -105,9 +105,9 @@ namespace TMS.Business.Actions
                     data = orderDir == "asc" ? data.OrderBy(x => x.Address) : data.OrderByDescending(x => x.Address);
                     break;
             }
-            int index = PageSize * PageIndex;
-            data = data.Skip(index).Take(PageSize);
             int total = await data.CountAsync();
+            int index = PageIndex;
+            data = data.Skip(index).Take(PageSize);
             var model = await data.AsNoTracking().Select(x => new CustomerDto()
             {
                 Id = x.Id,

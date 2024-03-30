@@ -1,32 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var dir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+    var lang = CultureInfo.CurrentCulture.Name;
+    var textDir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "right" : "left";
 }
-<link rel="stylesheet" href="~/lib/theme/plugins/fullcalendar/main.css">
+<link rel="stylesheet" href="~/lib/theme/plugins/fullcalendar/main.css"><script src="~/lib/theme/plugins/fullcalendar/locales/af.js"></script>
+
 <script src="~/lib/theme/plugins/moment/moment.min.js"></script>
 <script src="~/lib/theme/plugins/fullcalendar/main.js"></script>
+<script src="~/lib/theme/plugins/fullcalendar/locales/ur.js"></script>
 <style>
     #calendar {
         width: 100%;
         height: 100%;
     }
+
+    .products-list .product-info {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
 </style>
 
 <div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Dashboard</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
+    @await Component.InvokeAsync("BreadCrumb", new { Title = localizer["Dashboard"], From = localizer["Home"], To = localizer["Dashboard"] })
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -34,8 +30,8 @@
                     <div class="info-box">
                         <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-users-rectangle"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Customers</span>
+                        <div class="info-box-content text-@textDir">
+                            <span class="info-box-text">@localizer["Customers"]</span>
                             <span class="info-box-number" id="txtCustomerCount">
                                 <i class="fa fa-spinner fa-spin text-info"></i>
                             </span>
@@ -46,8 +42,8 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Total Orders</span>
+                        <div class="info-box-content text-@textDir">
+                            <span class="info-box-text">@localizer["Total_Orders"]</span>
                             <span class="info-box-number" id="txtOrdersCount">
                                 <i class="fa fa-spinner fa-spin text-danger"></i>
                             </span>
@@ -60,8 +56,8 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-cart-plus"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Today Taken Orders</span>
+                        <div class="info-box-content text-@textDir">
+                            <span class="info-box-text">@localizer["Today_Taken_Orders"]</span>
                             <span class="info-box-number" id="txtTakenOrdersCount">
                                 <i class="fa fa-spinner fa-spin text-success"></i>
                             </span>
@@ -72,8 +68,8 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-purple elevation-1"><i class="fa-solid fa-cart-arrow-down"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Today Return Orders</span>
+                        <div class="info-box-content text-@textDir">
+                            <span class="info-box-text">@localizer["Today_Return_Orders"]</span>
                             <span class="info-box-number" id="txtReturnOrdersCount">
                                 <i class="fa fa-spinner fa-spin text-purple"></i>
                             </span>
@@ -83,101 +79,100 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="card card-primary">
                         <div class="card-body">
                             <div id="calendar"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h6 class="text-purple">Quick Links</h6>
+                <div class="col-md-3">
+                    <div class="card" style="direction: @dir;">
+                        <div class="card-header text-@textDir">
+                            <h6 class="text-purple">@localizer["Quick_Links"]</h6>
                         </div>
                         <div class="card-body">
                             <ul class="products-list product-list-in-card pl-2 pr-2">
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class=" fas fa-user-tie text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="index" asp-controller="Staff" class="product-title">
-                                            Staff
+                                            @localizer["Staff"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class=" fa-solid fa-users-line text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="index" asp-controller="Customer" class="product-title">
-                                            Customers
+                                            @localizer["Customers"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class="fa-solid fa-cart-plus text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="index" asp-controller="Orders" class="product-title">
-                                            Orders
+                                            @localizer["Orders"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class=" fa-solid fa-receipt text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="Invoices" asp-controller="Orders" class="product-title">
-                                            Invoices
+                                            @localizer["Invoices"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class=" fa-solid fa-file-contract text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="BalanceSheet" asp-controller="Orders" class="product-title">
-                                            Balance Sheet
+                                            @localizer["Balance_Sheet"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class=" fa-solid fa-user text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="Profile" asp-controller="Profile" class="product-title">
-                                            Profile
+                                            @localizer["Profile"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class="fa-solid fa-user-secret text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="Password" asp-controller="Profile" class="product-title">
-                                            Change Password
+                                            @localizer["Change_Password"]
                                         </a>
                                     </div>
                                 </li>
-                                <li class="item">
+                                <li class="item row">
                                     <div class="product-img">
                                         <i class="fa-solid fa-right-from-bracket text-purple" style="font-size: x-large;"></i>
                                     </div>
                                     <div class="product-info">
                                         <a asp-action="Logout" asp-controller="Account" class="product-title">
-                                            Sign Out
+                                            @localizer["Sign_Out"]
                                         </a>
                                     </div>
                                 </li>
-                           
                             </ul>
 
                         </div>
@@ -238,7 +233,7 @@
                     color = e.isCollected ? "green" : "red";
                 }
                 items.push({
-                    title: 'Order #' + e.id,
+                    title: '@localizer["Order"] #' + e.id,
                     start: new Date(y, m, d),
                     backgroundColor: color,
                     borderColor: color,
@@ -254,6 +249,9 @@
                 },
                 themeSystem: 'bootstrap',
                 events: items,
+                locale: '@lang',
+                direction: '@dir',
+                dayMaxEvents: 3
             });
 
             calendar.render();
