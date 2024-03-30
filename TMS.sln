@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.Data", "TMS.Data\TMS.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.Business", "TMS.Business\TMS.Business.csproj", "{EF6850E8-A87F-4FB7-9052-1D0B77683ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.Common", "TMS.Common\TMS.Common.csproj", "{0063CED1-1261-40CA-AAC3-F68CD7D91133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.Common", "TMS.Common\TMS.Common.csproj", "{0063CED1-1261-40CA-AAC3-F68CD7D91133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

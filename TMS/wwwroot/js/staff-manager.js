@@ -36,24 +36,37 @@
                     },
                 ],
                 "language": {
-                    "processing": '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>',
-                    "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                    "processing": '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">' + LanguageManager.Loading + '</span>',
+                    "info": LanguageManager.Showing_START_to_END_of_TOTAL_entries,
+                    "emptyTable": "<img src='../img/no-record-found.png' style='width:150px;'/>",
+                    oLanguage: {
+                        sLanguage: LanguageManager.dir
+                    },
+                    "lengthMenu": LanguageManager.Display_MENU_records_per_page,
                     "infoFiltered": "",
-                    "emptyTable": "<img src='../img/no-record-found.png' style='width:150px;'/>"
+                    "search": LanguageManager.Search,
+                    "paginate": {
+                        "sFirst": LanguageManager.First,
+                        "sLast": LanguageManager.Last,
+                        "sNext": LanguageManager.Next,
+                        "sPrevious": LanguageManager.Previous
+                    }
                 },
                 "initComplete": function () {
-                    var ageFilterDropdown = '<label class=" ml-2"><select id="roleFilter" class="form-control form-control-sm"><option value="">All Roles</option>';
-                    ageFilterDropdown += '<option value="Cutter">Cutter</option>';
-                    ageFilterDropdown += '<option value="Tailor">Tailor</option>';
-                    ageFilterDropdown += '<option value="Other">Other</option>';
+                    var ageFilterDropdown = '<label class=" ml-2"><select id="roleFilter" class="form-control form-control-sm"><option value="">' + LanguageManager.All_Roles + '</option>';
+                    ageFilterDropdown += '<option value="Cutter">' + LanguageManager.Cutter + '</option>';
+                    ageFilterDropdown += '<option value="Tailor">' + LanguageManager.Tailor + '</option>';
+                    ageFilterDropdown += '<option value="Other">' + LanguageManager.Other + '</option>';
                     ageFilterDropdown += '</select></label>';
                     $('#dtStaff_filter').append(ageFilterDropdown);
 
-                    ageFilterDropdown = '<label class=" ml-2"><select id="statusFilter" class="form-control form-control-sm"><option value="">All Status</option>';
-                    ageFilterDropdown += '<option value="false">Active</option>';
-                    ageFilterDropdown += '<option value="true">In Active</option>';
+                    ageFilterDropdown = '<label class=" ml-2"><select id="statusFilter" class="form-control form-control-sm"><option value="">' + LanguageManager.All_Status + '</option>';
+                    ageFilterDropdown += '<option value="false">' + LanguageManager.Active + '</option>';
+                    ageFilterDropdown += '<option value="true">' + LanguageManager.In_Active + '</option>';
                     ageFilterDropdown += '</select></label>';
                     $('#dtStaff_filter').append(ageFilterDropdown);
+
+                    $('#dtStaff_length, #dtStaff_info').addClass('text-' + LanguageManager.textDir);
 
                     // Add event listener to the dropdown for filtering
                     $('#roleFilter, #statusFilter').on('change', function () {
@@ -76,7 +89,7 @@
             });
         },
         DeleteStaff: function (id) {
-            showAlert('De-Activation', 'Are you sure, you want to deactivate staff?', "warning", true, "Cancel", "Deactivate", function () {
+            showAlert(LanguageManager.De_Activation, LanguageManager.Are_you_sure_you_want_to_deactivate_staff, "warning", true, LanguageManager.Cancel, LanguageManager.Deactivate, function () {
                 showLoader();
                 $.ajax({
                     url: '/Staff/DeleteStaff',
@@ -85,17 +98,17 @@
                     success: function (data) {
                         hideLoader();
                         if (data.status) {
-                            showAlert('Success', data.msg, "success", false, "Cancel", "OK", function () {
+                            showAlert(LanguageManager.Success, data.msg, "success", false, LanguageManager.Cancel, LanguageManager.OK, function () {
                                 StaffManager.Datatable.draw();
                                 $('#modal-lg').modal("hide");
                             });
                         } else {
-                            showAlert('Oops', data.msg, "warning", false, "Cancel", "OK");
+                            showAlert(LanguageManager.Oops, data.msg, "warning", false, LanguageManager.Cancel, LanguageManager.OK);
                         }
                     },
                     error: function () {
                         hideLoader();
-                        showAlert('Oops', 'Something went wrong! Try again letter', "error", false, "Cancel", "OK");
+                        showAlert(LanguageManager.Oops, 'Something went wrong! Try again letter', "error", false, LanguageManager.Cancel, LanguageManager.OK);
                     }
                 })
 

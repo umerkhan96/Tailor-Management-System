@@ -5,8 +5,8 @@
 var waitingPopup;
 function showLoader() {
     waitingPopup = Swal.fire({
-        title: "Waiting for response from server!",
-        html: "please wait!<br>",
+        title: LanguageManager.Waiting_for_response_from_server,
+        html: LanguageManager.please_wait + "<br>",
         allowOutsideClick: false,
         didOpen: () => {
             Swal.showLoading();

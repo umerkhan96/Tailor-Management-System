@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using TMS.Auth.Services.Interfaces;
 using TMS.Dtos;
 
@@ -8,15 +9,18 @@ namespace TMS.Controllers
     {
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
+        private readonly IHtmlLocalizer<StaffController> _localizer;
 
-        public StaffController(IUserService userService, IConfiguration configuration)
+        public StaffController(IUserService userService, IConfiguration configuration, IHtmlLocalizer<StaffController> localizer)
         {
             _userService = userService;
             _configuration = configuration;
+            _localizer = localizer;
         }
 
         public IActionResult Index()
         {
+            var x = _localizer["Email_already_exists_in_users"];
             return View();
         }
 
@@ -64,7 +68,7 @@ namespace TMS.Controllers
         {
             if (await _userService.ExistsByEmail(model.Email, model.Id))
             {
-                return new JsonResult(new { status = false, msg = "Email already exists in users!" });
+                return new JsonResult(new { status = false, msg = _localizer["Email_already_exists_in_users"] });
             }
             if (await _userService.ExistsByUsername(model.Username, model.Id))
             {

@@ -1,22 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Staff";
+    ViewData["Title"] = localizer["Staff"];
+    //var dir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+    //var lang = CultureInfo.CurrentCulture.Name;
+    var textDir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "right" : "left";
+    var btnDir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "left" : "right";
 }
 <div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Staff</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Staff</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
+    @await Component.InvokeAsync("BreadCrumb", new { Title = localizer["Staff"], From = localizer["Home"], To = localizer["Staff"] })
 
     <section class="content">
         <div class="container-fluid">
@@ -25,21 +15,21 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List of Staffs</h3>
-                            <button class="btn btn-info btn-sm float-right" onclick="StaffManager.LoadSaveForm(0)"><i class="fa fa-user-plus"></i> Add Staff</button>
+                            <h3 class="card-title float-@textDir">@localizer["List_of_Staffs"]</h3>
+                            <button class="btn btn-info btn-sm float-@btnDir" onclick="StaffManager.LoadSaveForm(0)"><i class="fa fa-user-plus"></i> @localizer["Add_Staff"]</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="dtStaff" class="table table-bordered table-striped table-sm">
+                            <table id="dtStaff" class="table table-bordered table-striped table-sm text-@textDir">
                                 <thead>
                                     <tr>
-                                        <th>Sr No</th>
-                                        <th>Emp No</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Actions</th>
+                                        <th>@localizer["Sr_No"]</th>
+                                        <th>@localizer["Emp_No"]</th>
+                                        <th>@localizer["First_Name"]</th>
+                                        <th>@localizer["Last_Name"]</th>
+                                        <th>@localizer["Email"]</th>
+                                        <th>@localizer["Role"]</th>
+                                        <th>@localizer["Actions"]</th>
                                     </tr>
                                 </thead>
                                 <tbody>

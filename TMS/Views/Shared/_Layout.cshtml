@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@cmpName</title>
+    <title>@cmpName - @ViewData["Title"]</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
@@ -41,6 +41,7 @@
     <script src="~/lib/theme/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/lib/theme/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <partial name="_LanguagePartial" />
 </head>
 <body dir="@dir" class="hold-transition layout-top-nav layout-fixed layout-navbar-fixed layout-footer-fixed text-sm accent-navy">
     <div class="wrapper">

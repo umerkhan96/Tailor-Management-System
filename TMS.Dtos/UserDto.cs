@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Resources;
 
 namespace TMS.Dtos
 {
@@ -35,6 +36,8 @@ namespace TMS.Dtos
         [Required(ErrorMessage = "Provide first name!")]
         [MaxLength(25, ErrorMessage = "Provide maximum 25 characters for first name!")]
         [MinLength(3, ErrorMessage = "Provide minimum 3 characters for first name!")]
+        //[Required(ErrorMessageResourceType = typeof(Resources.Messages), ErrorMessageResourceName = "RequiredFieldError")]
+
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Provide last name!")]

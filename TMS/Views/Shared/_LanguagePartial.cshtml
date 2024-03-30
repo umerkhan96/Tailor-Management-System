@@ -1,0 +1,46 @@
+﻿@{
+    var dir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+    var textDir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "right" : "left";
+}
+
+<script>
+    var LanguageManager = function () {
+        return {
+            //Culture Info Items
+            dir: "@dir",
+            textDir: "@textDir",
+            //Datatable Items
+            Showing: "@localizer["Showing"]",
+            entries: "@localizer["entries"]",
+            of: "@localizer["of"]",
+            Loading: "@localizer["Loading"]",
+            First: "@localizer["First"]",
+            Last: "@localizer["Last"]",
+            Next: "@localizer["Next"]",
+            Previous: "@localizer["Previous"]",
+            Search: "@localizer["Search"]",
+            filtered_from_MAX_total_records: "@localizer["filtered_from_MAX_total_records"]",
+            Display_MENU_records_per_page: "@localizer["Display_MENU_records_per_page"]",
+            Showing_START_to_END_of_TOTAL_entries: "@localizer["Showing_START_to_END_of_TOTAL_entries"]",
+            //Message Items
+            please_wait: "@localizer["please_wait"]",
+            Waiting_for_response_from_server: "@localizer["Waiting_for_response_from_server"]",
+            De_Activation: "@localizer["De_Activation"]",
+            Are_you_sure_you_want_to_deactivate_staff: "@localizer["Are_you_sure_you_want_to_deactivate_staff"]",
+            //Misc Items
+            OK: "@localizer["OK"]",
+            Oops: "@localizer["Oops"]",
+            Cancel: "@localizer["Cancel"]",
+            Success: "@localizer["Success"]",
+            Deactivate: "@localizer["Deactivate"]",
+            Cutter: "@localizer["Cutter"]",
+            Tailor: "@localizer["Tailor"]",
+            Other: "@localizer["Other"]",
+            All_Status: "@localizer["All Status"]",
+            Active: "@localizer["Active"]",
+            In_Active: "@localizer["In_Active"]",
+            All_Roles: "@localizer["All_Roles"]",
+
+        }
+    }();
+</script>

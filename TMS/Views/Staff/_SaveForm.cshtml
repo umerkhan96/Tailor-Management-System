@@ -1,56 +1,55 @@
 ﻿@model TMS.Dtos.UserDto
 @inject Microsoft.Extensions.Configuration.IConfiguration configuration
+@{
+    var textDir = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? "right" : "left";
+}
 
 <form id="form-save-user">
     <input type="hidden" asp-for="Id" />
     <div class="modal-header">
-        <h4 class="modal-title">Save Staff</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title">@localizer["Staff_Details"]</h4>
     </div>
     <div class="modal-body">
         <div class="row">
             <div class="form-group col-md-6">
-                <label>First Name <span class="req-star">*</span></label>
+                <label class="col-12 text-@textDir">@localizer["First_Name"] <span class="req-star">*</span></label>
                 <input type="text" asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName"></span>
             </div>
             <div class="form-group col-md-6">
-                <label>Last Name <span class="req-star">*</span></label>
+                <label class="col-12 text-@textDir">@localizer["Last_Name"] <span class="req-star">*</span></label>
                 <input type="text" asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName"></span>
             </div>
             <div class="form-group col-md-6">
-                <label>Email <span class="req-star">*</span></label>
+                <label class="col-12 text-@textDir">@localizer["Email"] <span class="req-star">*</span></label>
                 <input type="text" asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email"></span>
             </div>
             <div class="form-group col-md-6">
-                <label>Role <span class="req-star">*</span></label>
+                <label class="col-12 text-@textDir">@localizer["Role"] <span class="req-star">*</span></label>
                 <select asp-for="Role" class="form-control" disabled="@(Model.Id > 0)">
-                    <option value="">Select Role</option>
-                    <option value="@configuration.GetSection("SeederData:DefaultRoleCutter").Value">Cutter</option>
-                    <option value="@configuration.GetSection("SeederData:DefaultRoleTailor").Value">Tailor</option>
-                    <option value="@configuration.GetSection("SeederData:DefaultRoleOther").Value">Other</option>
+                    <option value="">@localizer["Select_Role"]</option>
+                    <option value="@configuration.GetSection("SeederData:DefaultRoleCutter").Value">@localizer["Cutter"]</option>
+                    <option value="@configuration.GetSection("SeederData:DefaultRoleTailor").Value">@localizer["Tailor"]</option>
+                    <option value="@configuration.GetSection("SeederData:DefaultRoleOther").Value">@localizer["Other"]</option>
                 </select>
                 <span asp-validation-for="Role"></span>
             </div>
             <div class="form-group col-md-6">
-                <label>Username</label>
+                <label class="col-12 text-@textDir">@localizer["Username"]</label>
                 <input type="text" asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username"></span>
             </div>
             <div class="form-group col-md-6">
-                <label>Phone</label>
+                <label class="col-12 text-@textDir">@localizer["Phone"]</label>
                 <input type="text" asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone"></span>
             </div>
             @if (Model.Id == 0)
             {
-
                 <div class="form-group col-md-6">
-                    <label>Password <span class="req-star">*</span></label>
+                    <label class="col-12 text-@textDir">@localizer["Password"] <span class="req-star">*</span></label>
                     <div class="input-group">
                         <input type="password" asp-for="Password" class="form-control">
                         <div class="input-group-append">
@@ -60,7 +59,7 @@
                     <span asp-validation-for="Password"></span>
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Confirm Password <span class="req-star">*</span></label>
+                    <label class="col-12 text-@textDir">@localizer["Confirm_Password"] <span class="req-star">*</span></label>
                     <div class="input-group">
                         <input type="password" asp-for="ConfirmPassword" class="form-control">
                         <div class="input-group-append">
@@ -74,8 +73,8 @@
         </div>
     </div>
     <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="StaffManager.SaveStaff()">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">@localizer["Close"]</button>
+        <button type="button" class="btn btn-primary" onclick="StaffManager.SaveStaff()">@localizer["Save_changes"]</button>
     </div>
 </form>
 <partial name="_ValidationScriptsPartial" />

@@ -180,7 +180,6 @@ namespace TMS.Auth.Repositories.Actions
                 || x.LastName.ToLower().Contains(searchTerm)
                 || x.Username.ToLower().Contains(searchTerm)
                 || x.Email.ToLower().Contains(searchTerm)
-                || x.Phone.ToLower().Contains(searchTerm)
                 ).ToList();
             }
 
