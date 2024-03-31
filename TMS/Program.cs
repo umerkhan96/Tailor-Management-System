@@ -1,16 +1,10 @@
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Globalization;
-using System.Reflection;
-using TMS.Auth.Contexts;
 using TMS.Auth.Seeders;
 using TMS.Business;
 using TMS.Common.Helpers;
-using TMS.Data.Entities;
 using static TMS.Auth.ConfigHelper;
 using static TMS.Data.ConfigureData;
 

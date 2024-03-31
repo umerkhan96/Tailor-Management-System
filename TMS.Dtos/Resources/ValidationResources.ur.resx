@@ -117,58 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Close" xml:space="preserve">
-    <value>بند کریں</value>
+  <data name="Invalid_email_address" xml:space="preserve">
+    <value>غلط ای میل ایڈریس</value>
   </data>
-  <data name="Confirm_Password" xml:space="preserve">
-    <value>پاس ورڈ کی تصدیق کریں</value>
+  <data name="Maximum_16_characters_allowed" xml:space="preserve">
+    <value>زیادہ سے زیادہ 16 حروف کی اجازت ہے۔</value>
   </data>
-  <data name="Cutter" xml:space="preserve">
-    <value>کپڑا کاٹنے والا</value>
+  <data name="Maximum_characters_allowed" xml:space="preserve">
+    <value>زیادہ سے زیادہ {0} حروف کی اجازت ہے۔</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>ای میل</value>
+  <data name="Minimum_8_characters_required" xml:space="preserve">
+    <value>کم از کم 8 حروف درکار ہیں۔</value>
   </data>
-  <data name="Emp_No" xml:space="preserve">
-    <value>ملازمت نمبر</value>
+  <data name="Minimum_characters_required" xml:space="preserve">
+    <value>کم از کم {0} حروف درکار ہیں۔</value>
   </data>
-  <data name="First_Name" xml:space="preserve">
-    <value>نام</value>
+  <data name="Password_and_confirm_password_missmatched" xml:space="preserve">
+    <value>پاس ورڈ اور تصدیق شدہ پاس ورڈ مماثل نہیں ہے۔</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>ہوم پیج</value>
+  <data name="Password_must_have_atleast" xml:space="preserve">
+    <value>پاس ورڈ میں کم از کم 1 لوئر کیس، 1 اپر کیس، 1 نمبر اور 1 اسپیشل کریکٹر ہونا چاہیے۔</value>
   </data>
-  <data name="Last_Name" xml:space="preserve">
-    <value>خاندانی نام</value>
+  <data name="Phone_number_must_be_formated_as" xml:space="preserve">
+    <value>فون نمبر کو 03xxxxxxxx کے طور پر فارمیٹ کیا جانا چاہیے۔</value>
   </data>
-  <data name="Other" xml:space="preserve">
-    <value>دیگر</value>
+  <data name="Provide_confirmation_of_password" xml:space="preserve">
+    <value>پاس ورڈ کی تصدیق فراہم کریں۔</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>پاس ورڈ</value>
+  <data name="Provide_email_address" xml:space="preserve">
+    <value>ای میل ایڈریس فراہم کریں۔</value>
   </data>
-  <data name="Phone" xml:space="preserve">
-    <value>فون نمبر</value>
+  <data name="Provide_first_name" xml:space="preserve">
+    <value>نام بتائیں</value>
   </data>
-  <data name="Role" xml:space="preserve">
-    <value>کردار</value>
+  <data name="Provide_last_name" xml:space="preserve">
+    <value>خاندانی نام بتائیں</value>
   </data>
-  <data name="Save_changes" xml:space="preserve">
-    <value>تبدیلیاں محفوظ کرو</value>
+  <data name="Provide_password_for_login" xml:space="preserve">
+    <value>لاگ ان کے لیے پاس ورڈ فراہم کریں۔</value>
   </data>
-  <data name="Select_Role" xml:space="preserve">
-    <value>کردار منتخب کریں۔</value>
+  <data name="Provide_username" xml:space="preserve">
+    <value>صارف نام فراہم کریں۔</value>
   </data>
-  <data name="Staff" xml:space="preserve">
-    <value>عملہ</value>
-  </data>
-  <data name="Staff_Details" xml:space="preserve">
-    <value>عملے کی تفصیلات</value>
-  </data>
-  <data name="Tailor" xml:space="preserve">
-    <value>درزی</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>صارف نام</value>
+  <data name="Select_staff_role" xml:space="preserve">
+    <value>عملے کا کردار منتخب کریں۔</value>
   </data>
 </root>

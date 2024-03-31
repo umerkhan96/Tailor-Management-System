@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cutter" xml:space="preserve">
+    <value>Cutter</value>
+  </data>
   <data name="Email_already_exists_in_users" xml:space="preserve">
     <value>Email already exists in users!</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Tailor" xml:space="preserve">
+    <value>Tailor</value>
   </data>
 </root>

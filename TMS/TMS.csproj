@@ -7,6 +7,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <Content Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Controllers\HomeController.en.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controllers\HomeController.ur.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controllers\StaffController.en.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Controllers\StaffController.ur.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\Index.en.resx" />
+    <EmbeddedResource Include="Resources\Views\Home\Index.ur.resx" />
+    <EmbeddedResource Include="Resources\Views\Profile\Culture.en.resx" />
+    <EmbeddedResource Include="Resources\Views\Profile\Culture.ur.resx" />
+    <EmbeddedResource Include="Resources\Views\Shared\Components\Navigation\Navigation.en.resx" />
+    <EmbeddedResource Include="Resources\Views\Shared\Components\Navigation\Navigation.ur.resx" />
+    <EmbeddedResource Include="Resources\Views\Shared\_LanguagePartial.en.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_LanguagePartial.ur.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Staff\Index.en.resx" />
+    <EmbeddedResource Include="Resources\Views\Staff\Index.ur.resx" />
+    <EmbeddedResource Include="Resources\Views\Staff\_SaveForm.en.resx" />
+    <EmbeddedResource Include="Resources\Views\Staff\_SaveForm.ur.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.2" />
     <PackageReference Include="DataTables.AspNet.Core" Version="2.0.2" />
     <PackageReference Include="itext7" Version="8.0.3" />
@@ -32,27 +70,6 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Controllers\HomeController.en.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\HomeController.ur.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\StaffController.en.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\StaffController.ur.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\Shared\_LanguagePartial.en.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\Shared\_LanguagePartial.ur.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -117,37 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actions" xml:space="preserve">
-    <value>اعمال</value>
+  <data name="Invalid_email_address" xml:space="preserve">
+    <value>Invalid email address</value>
   </data>
-  <data name="Add_Staff" xml:space="preserve">
-    <value>نیا عملہ شامل کریں۔</value>
+  <data name="Maximum_16_characters_allowed" xml:space="preserve">
+    <value>Maximum 16 characters allowed</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>ای میل</value>
+  <data name="Maximum_characters_allowed" xml:space="preserve">
+    <value>Maximum {0} characters allowed</value>
   </data>
-  <data name="Emp_No" xml:space="preserve">
-    <value>ملازمت نمبر</value>
+  <data name="Minimum_8_characters_required" xml:space="preserve">
+    <value>Minimum 8 characters required</value>
   </data>
-  <data name="First_Name" xml:space="preserve">
-    <value>نام</value>
+  <data name="Minimum_characters_required" xml:space="preserve">
+    <value>Minimum {0} characters required</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>ہوم پیج</value>
+  <data name="Password_and_confirm_password_missmatched" xml:space="preserve">
+    <value>Password and confirm password missmatched</value>
   </data>
-  <data name="Last_Name" xml:space="preserve">
-    <value>خاندانی نام</value>
+  <data name="Password_must_have_atleast" xml:space="preserve">
+    <value>Password must have at least 1 lower case, 1 upper case,  1 number and 1 special character</value>
   </data>
-  <data name="List_of_Staffs" xml:space="preserve">
-    <value>عملے کی فہرست</value>
+  <data name="Phone_number_must_be_formated_as" xml:space="preserve">
+    <value>Phone number must be formated as 03xxxxxxxxx</value>
   </data>
-  <data name="Role" xml:space="preserve">
-    <value>کردار</value>
+  <data name="Provide_confirmation_of_password" xml:space="preserve">
+    <value>Provide confirmation of password</value>
   </data>
-  <data name="Sr_No" xml:space="preserve">
-    <value>#</value>
+  <data name="Provide_email_address" xml:space="preserve">
+    <value>Provide email address</value>
   </data>
-  <data name="Staff" xml:space="preserve">
-    <value>عملہ</value>
+  <data name="Provide_first_name" xml:space="preserve">
+    <value>Provide first name</value>
+  </data>
+  <data name="Provide_last_name" xml:space="preserve">
+    <value>Provide last name</value>
+  </data>
+  <data name="Provide_password_for_login" xml:space="preserve">
+    <value>Provide password for login</value>
+  </data>
+  <data name="Provide_username" xml:space="preserve">
+    <value>Provide username</value>
+  </data>
+  <data name="Select_staff_role" xml:space="preserve">
+    <value>Select staff role</value>
   </data>
 </root>

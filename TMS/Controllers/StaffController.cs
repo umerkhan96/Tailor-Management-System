@@ -43,6 +43,10 @@ namespace TMS.Controllers
             }
 
             var res = await _userService.GetStaffUsers(searchValue, length, start, role, sortColumnName, sortDirection, status);
+            res.Data.ForEach(x =>
+            {
+                x.Role = _localizer[x.Role].Value;
+            });
             return Json(new
             {
                 draw,
