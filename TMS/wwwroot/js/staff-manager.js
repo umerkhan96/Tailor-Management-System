@@ -108,14 +108,14 @@
                     },
                     error: function () {
                         hideLoader();
-                        showAlert(LanguageManager.Oops, 'Something went wrong! Try again letter', "error", false, LanguageManager.Cancel, LanguageManager.OK);
+                        showAlert(LanguageManager.Oops, LanguageManager.Something_went_wrong, "error", false, LanguageManager.Cancel, LanguageManager.OK);
                     }
                 })
 
             })
         },
         RestoreStaff: function (id) {
-            showAlert('Re-Activation', 'Are you sure, you want to re-activate staff?', "warning", true, "Cancel", "Reactivate", function () {
+            showAlert(LanguageManager.Re_Activation, LanguageManager.Are_you_sure_you_want_to_reactivate_staff, "warning", true, LanguageManager.Cancel, LanguageManager.Reactivate, function () {
                 showLoader();
                 $.ajax({
                     url: '/Staff/ActivateStaff',
@@ -124,17 +124,17 @@
                     success: function (data) {
                         hideLoader();
                         if (data.status) {
-                            showAlert('Success', data.msg, "success", false, "Cancel", "OK", function () {
+                            showAlert(LanguageManager.Success, data.msg, "success", false, LanguageManager.Cancel, LanguageManager.OK, function () {
                                 StaffManager.Datatable.draw();
                                 $('#modal-lg').modal("hide");
                             });
                         } else {
-                            showAlert('Oops', data.msg, "warning", false, "Cancel", "OK");
+                            showAlert(LanguageManager.Oops, data.msg, "warning", false, LanguageManager.Cancel, LanguageManager.OK);
                         }
                     },
                     error: function () {
                         hideLoader();
-                        showAlert('Oops', 'Something went wrong! Try again letter', "error", false, "Cancel", "OK");
+                        showAlert(LanguageManager.Oops, LanguageManager.Something_went_wrong, "error", false, LanguageManager.Cancel, LanguageManager.OK);
                     }
                 })
 
@@ -142,7 +142,7 @@
         },
         SaveStaff: function () {
             if ($('#form-save-user').valid()) {
-                showAlert('Confirmation', 'Are you sure, you want to save staff?', "warning", true, "Cancel", "Save", function () {
+                showAlert(LanguageManager.Confirmation, LanguageManager.Are_you_sure_you_want_to_save_staff, "warning", true, LanguageManager.Cancel, LanguageManager.Save, function () {
                     showLoader();
                     $.ajax({
                         url: '/Staff/SaveStaff',
@@ -151,17 +151,17 @@
                         success: function (data) {
                             hideLoader();
                             if (data.status) {
-                                showAlert('Success', data.msg, "success", false, "Cancel", "OK", function () {
+                                showAlert(LanguageManager.Success, data.msg, "success", false, LanguageManager.Cancel, LanguageManager.OK, function () {
                                     StaffManager.Datatable.draw();
                                     $('#modal-lg').modal("hide");
                                 });
                             } else {
-                                showAlert('Oops', data.msg, "warning", false, "Cancel", "OK");
+                                showAlert(LanguageManager.Oops, data.msg, "warning", false, LanguageManager.Cancel, LanguageManager.OK);
                             }
                         },
                         error: function () {
                             hideLoader();
-                            showAlert('Oops', 'Something went wrong! Try again letter', "error", false, "Cancel", "OK");
+                            showAlert(LanguageManager.Oops, LanguageManager.Something_went_wrong, "error", false, LanguageManager.Cancel, LanguageManager.OK);
                         }
                     })
                 })

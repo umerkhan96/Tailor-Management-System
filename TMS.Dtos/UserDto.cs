@@ -51,20 +51,20 @@ namespace TMS.Dtos
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessageResourceName = "Provide old password for verification!")]
-        [MaxLength(16, ErrorMessageResourceName = "Maximum 16 characters allowed!")]
-        [MinLength(8, ErrorMessageResourceName = "Minimum 8 characters required!")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$", ErrorMessageResourceName = "Password must have at least 1 lower case, 1 upper case,  1 number and 1 special character!")]
+        [Required(ErrorMessageResourceName = "Provide_old_password_for_verification", ErrorMessageResourceType = typeof(ValidationResources))]
+        [MaxLength(16, ErrorMessageResourceName = "Maximum_characters_allowed", ErrorMessageResourceType = typeof(ValidationResources))]
+        [MinLength(8, ErrorMessageResourceName = "Minimum_characters_required", ErrorMessageResourceType = typeof(ValidationResources))]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$", ErrorMessageResourceName = "Password_must_have_atleast", ErrorMessageResourceType = typeof(ValidationResources))]
         public string OldPassword { get; set; }
 
-        [Required(ErrorMessageResourceName = "Provide new password for verification!")]
-        [MaxLength(16, ErrorMessageResourceName = "Maximum 16 characters allowed!")]
-        [MinLength(8, ErrorMessageResourceName = "Minimum 8 characters required!")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$", ErrorMessageResourceName = "Password must have at least 1 lower case, 1 upper case,  1 number and 1 special character!")]
+        [Required(ErrorMessageResourceName = "Provide_new_password")]
+        [MaxLength(16, ErrorMessageResourceName = "Maximum_characters_allowed", ErrorMessageResourceType = typeof(ValidationResources))]
+        [MinLength(8, ErrorMessageResourceName = "Minimum_characters_required", ErrorMessageResourceType = typeof(ValidationResources))]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$", ErrorMessageResourceName = "Password_must_have_atleast", ErrorMessageResourceType = typeof(ValidationResources))]
         public string Password { get; set; }
 
-        [Required(ErrorMessageResourceName = "Provide confirmation password for verification!")]
-        [Compare("Password", ErrorMessageResourceName = "Password and confirm password missmatched!")]
+        [Required(ErrorMessageResourceName = "Provide_confirmation_password")]
+        [Compare("Password", ErrorMessageResourceName = "Password_and_confirm_password_missmatched", ErrorMessageResourceType = typeof(ValidationResources))]
         public string ConfirmPassword { get; set; }
 
 

@@ -126,7 +126,19 @@
   <data name="Other" xml:space="preserve">
     <value>دیگر</value>
   </data>
+  <data name="Staff_deactivated_successfully" xml:space="preserve">
+    <value>عملے کو کامیابی سے غیر فعال کر دیا گیا۔</value>
+  </data>
+  <data name="Staff_reactivated_successfully" xml:space="preserve">
+    <value>عملہ کامیابی سے دوبارہ فعال ہو گیا۔</value>
+  </data>
+  <data name="Staff_saved_successfully" xml:space="preserve">
+    <value>عملے کی تفصیلات کامیابی سے محفوظ ہو گئیں۔</value>
+  </data>
   <data name="Tailor" xml:space="preserve">
     <value>درزی</value>
+  </data>
+  <data name="Username_already_exists_in_users" xml:space="preserve">
+    <value>صارف نام پہلے سے ہی صارفین میں موجود ہے۔</value>
   </data>
 </root>

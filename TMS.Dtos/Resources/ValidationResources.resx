@@ -120,17 +120,11 @@
   <data name="Invalid_email_address" xml:space="preserve">
     <value>Invalid email address</value>
   </data>
-  <data name="Maximum_16_characters_allowed" xml:space="preserve">
-    <value>Maximum 16 characters allowed</value>
-  </data>
   <data name="Maximum_characters_allowed" xml:space="preserve">
-    <value>Maximum {0} characters allowed</value>
-  </data>
-  <data name="Minimum_8_characters_required" xml:space="preserve">
-    <value>Minimum 8 characters required</value>
+    <value>Maximum {1} characters allowed</value>
   </data>
   <data name="Minimum_characters_required" xml:space="preserve">
-    <value>Minimum {0} characters required</value>
+    <value>Minimum {1} characters required</value>
   </data>
   <data name="Password_and_confirm_password_missmatched" xml:space="preserve">
     <value>Password and confirm password missmatched</value>
@@ -144,6 +138,9 @@
   <data name="Provide_confirmation_of_password" xml:space="preserve">
     <value>Provide confirmation of password</value>
   </data>
+  <data name="Provide_confirmation_password" xml:space="preserve">
+    <value>Provide new password again</value>
+  </data>
   <data name="Provide_email_address" xml:space="preserve">
     <value>Provide email address</value>
   </data>
@@ -152,6 +149,12 @@
   </data>
   <data name="Provide_last_name" xml:space="preserve">
     <value>Provide last name</value>
+  </data>
+  <data name="Provide_new_password" xml:space="preserve">
+    <value>Provide new password</value>
+  </data>
+  <data name="Provide_old_password_for_verification" xml:space="preserve">
+    <value>Provide old password for verification</value>
   </data>
   <data name="Provide_password_for_login" xml:space="preserve">
     <value>Provide password for login</value>

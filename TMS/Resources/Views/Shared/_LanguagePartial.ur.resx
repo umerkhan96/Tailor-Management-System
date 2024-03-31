@@ -129,8 +129,17 @@
   <data name="Are_you_sure_you_want_to_deactivate_staff" xml:space="preserve">
     <value>کیا آپ واقعی عملے کو غیر فعال کرنا چاہتے ہیں؟</value>
   </data>
+  <data name="Are_you_sure_you_want_to_reactivate_staff" xml:space="preserve">
+    <value>کیا آپ واقعی عملے کو دوبارہ فعال کرنا چاہتے ہیں؟</value>
+  </data>
+  <data name="Are_you_sure_you_want_to_save_staff" xml:space="preserve">
+    <value>کیا آپ واقعی عملے کی تفصیلات محفوظ کرنا چاہتے ہیں؟</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>منسوخ کریں</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>تصدیق</value>
   </data>
   <data name="Cutter" xml:space="preserve">
     <value>کپڑا کاٹنے والا</value>
@@ -183,6 +192,15 @@
   <data name="Previous" xml:space="preserve">
     <value>پچھلا</value>
   </data>
+  <data name="Reactivate" xml:space="preserve">
+    <value>دوبارہ فعال کریں۔</value>
+  </data>
+  <data name="Re_Activation" xml:space="preserve">
+    <value>دوبارہ ایکٹیویشن</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>محفوظ کریں</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>تلاش کریں</value>
   </data>
@@ -191,6 +209,9 @@
   </data>
   <data name="Showing_START_to_END_of_TOTAL_entries" xml:space="preserve">
     <value>_TOTAL_ اندراجات میں سے _START_ سے _END_ تک دکھا رہا ہے۔</value>
+  </data>
+  <data name="Something_went_wrong" xml:space="preserve">
+    <value>کچھ غلط ہو گیا! دوبارہ کوشش کریں</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>کامیابی</value>

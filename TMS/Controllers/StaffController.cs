@@ -20,7 +20,6 @@ namespace TMS.Controllers
 
         public IActionResult Index()
         {
-            var x = _localizer["Email_already_exists_in_users"];
             return View();
         }
 
@@ -76,27 +75,27 @@ namespace TMS.Controllers
             }
             if (await _userService.ExistsByUsername(model.Username, model.Id))
             {
-                return new JsonResult(new { status = false, msg = "Username already exists in users!" });
+                return new JsonResult(new { status = false, msg = _localizer["Username_already_exists_in_users"] });
             }
             if (model.Id == 0)
                 model = await _userService.CreateUser(model);
             else
                 await _userService.UpdateUser(model);
-            return new JsonResult(new { status = true, msg = "Staff saved successfully!" });
+            return new JsonResult(new { status = true, msg = _localizer["Staff saved successfully"] });
         }
 
         [HttpPost]
         public async Task<JsonResult> DeleteStaff(string ID)
         {
             await _userService.DeleteUserByID(ID);
-            return new JsonResult(new { status = true, msg = "Staff de-activated successfully!" });
+            return new JsonResult(new { status = true, msg = _localizer["Staff_deactivated_successfully"] });
         }
 
         [HttpPost]
         public async Task<JsonResult> ActivateStaff(string ID)
         {
             await _userService.RestoreUserByID(ID);
-            return new JsonResult(new { status = true, msg = "Staff re-activated successfully!" });
+            return new JsonResult(new { status = true, msg = _localizer["Staff_reactivated_successfully"] });
         }
     }
 }

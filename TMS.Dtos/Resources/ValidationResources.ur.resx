@@ -120,17 +120,11 @@
   <data name="Invalid_email_address" xml:space="preserve">
     <value>غلط ای میل ایڈریس</value>
   </data>
-  <data name="Maximum_16_characters_allowed" xml:space="preserve">
-    <value>زیادہ سے زیادہ 16 حروف کی اجازت ہے۔</value>
-  </data>
   <data name="Maximum_characters_allowed" xml:space="preserve">
-    <value>زیادہ سے زیادہ {0} حروف کی اجازت ہے۔</value>
-  </data>
-  <data name="Minimum_8_characters_required" xml:space="preserve">
-    <value>کم از کم 8 حروف درکار ہیں۔</value>
+    <value>زیادہ سے زیادہ {1} حروف کی اجازت ہے۔</value>
   </data>
   <data name="Minimum_characters_required" xml:space="preserve">
-    <value>کم از کم {0} حروف درکار ہیں۔</value>
+    <value>کم از کم {1} حروف درکار ہیں۔</value>
   </data>
   <data name="Password_and_confirm_password_missmatched" xml:space="preserve">
     <value>پاس ورڈ اور تصدیق شدہ پاس ورڈ مماثل نہیں ہے۔</value>
@@ -144,6 +138,9 @@
   <data name="Provide_confirmation_of_password" xml:space="preserve">
     <value>پاس ورڈ کی تصدیق فراہم کریں۔</value>
   </data>
+  <data name="Provide_confirmation_password" xml:space="preserve">
+    <value>دوبارہ نیا پاس ورڈ فراہم کریں۔</value>
+  </data>
   <data name="Provide_email_address" xml:space="preserve">
     <value>ای میل ایڈریس فراہم کریں۔</value>
   </data>
@@ -152,6 +149,12 @@
   </data>
   <data name="Provide_last_name" xml:space="preserve">
     <value>خاندانی نام بتائیں</value>
+  </data>
+  <data name="Provide_new_password" xml:space="preserve">
+    <value>تبدیل کرنے کے لیے نیا پاس ورڈ فراہم کریں۔</value>
+  </data>
+  <data name="Provide_old_password_for_verification" xml:space="preserve">
+    <value>تصدیق کے لیے پرانا پاس ورڈ فراہم کریں۔</value>
   </data>
   <data name="Provide_password_for_login" xml:space="preserve">
     <value>لاگ ان کے لیے پاس ورڈ فراہم کریں۔</value>

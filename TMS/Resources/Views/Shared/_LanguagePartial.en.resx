@@ -129,8 +129,17 @@
   <data name="Are_you_sure_you_want_to_deactivate_staff" xml:space="preserve">
     <value>Are you sure, you want to deactivate staff?</value>
   </data>
+  <data name="Are_you_sure_you_want_to_reactivate_staff" xml:space="preserve">
+    <value>Are you sure, you want to reactivate staff?</value>
+  </data>
+  <data name="Are_you_sure_you_want_to_save_staff" xml:space="preserve">
+    <value>Are you sure, you want to save staff details?</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Confirmation</value>
   </data>
   <data name="Cutter" xml:space="preserve">
     <value>Cutter</value>
@@ -183,6 +192,15 @@
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
   </data>
+  <data name="Reactivate" xml:space="preserve">
+    <value>Reactivate</value>
+  </data>
+  <data name="Re_Activation" xml:space="preserve">
+    <value>Re Activation</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search:</value>
   </data>
@@ -191,6 +209,9 @@
   </data>
   <data name="Showing_START_to_END_of_TOTAL_entries" xml:space="preserve">
     <value>Showing _START_ to _END_ of _TOTAL_ entries</value>
+  </data>
+  <data name="Something_went_wrong" xml:space="preserve">
+    <value>Something went wrong! Try again letter</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>Success</value>

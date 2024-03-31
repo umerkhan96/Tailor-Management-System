@@ -70,16 +70,7 @@ namespace TMS.Dtos.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum 16 characters allowed.
-        /// </summary>
-        public static string Maximum_16_characters_allowed {
-            get {
-                return ResourceManager.GetString("Maximum_16_characters_allowed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Maximum {0} characters allowed.
+        ///   Looks up a localized string similar to Maximum {1} characters allowed.
         /// </summary>
         public static string Maximum_characters_allowed {
             get {
@@ -88,16 +79,7 @@ namespace TMS.Dtos.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimum 8 characters required.
-        /// </summary>
-        public static string Minimum_8_characters_required {
-            get {
-                return ResourceManager.GetString("Minimum_8_characters_required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minimum {0} characters required.
+        ///   Looks up a localized string similar to Minimum {1} characters required.
         /// </summary>
         public static string Minimum_characters_required {
             get {
@@ -142,6 +124,15 @@ namespace TMS.Dtos.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provide new password again.
+        /// </summary>
+        public static string Provide_confirmation_password {
+            get {
+                return ResourceManager.GetString("Provide_confirmation_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provide email address.
         /// </summary>
         public static string Provide_email_address {
@@ -165,6 +156,24 @@ namespace TMS.Dtos.Resources {
         public static string Provide_last_name {
             get {
                 return ResourceManager.GetString("Provide_last_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide new password.
+        /// </summary>
+        public static string Provide_new_password {
+            get {
+                return ResourceManager.GetString("Provide_new_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide old password for verification.
+        /// </summary>
+        public static string Provide_old_password_for_verification {
+            get {
+                return ResourceManager.GetString("Provide_old_password_for_verification", resourceCulture);
             }
         }
         
